@@ -1,0 +1,274 @@
+Functions
+
+What is function ?
+-> function isliye use hote hai taki code turant na run hoke jab chahe tab run ho function ke andar likha hua code jab tak function ko call nhi kiya jata tab tak run nhi hota
+
+Where is function used ?
+-> Function is used to run a program for a button on AC remote or any other device, it is also used in code if we want to perform some specific task if the button is clicked
+
+What is function declaration ?
+function aryan(){
+    //code
+    //this is function declaration or function statement
+}
+
+
+What is function expression ?
+let aryan = function(){
+    //code
+    //tis is function expression
+}
+
+What is arrow function or fat arrow function ?
+let aryan = ()=>{
+    //code
+    //this is arrow function or fat arrow function
+    }
+
+What are parameters and arguments in function ?
+
+function arpa(a, b){            --> IN THIS LINE a, b are parameters in function
+    console.log(a + b);
+}
+
+arpa(1, 2)                      --> IN THIS LINE 1, 2 which are actual values are arguments in functions
+
+
+
+what is default ?
+function add(v1, v2){
+    console.log(v1, v2);        -->output: undefined undefined because value is not given
+    console.log(v1 + v2);       -->output: NaN because value is not given
+}
+add();
+
+
+function add(v1 = 0, v2 = 0){
+    console.log(v1, v2);        -->output:0, 0 because value is not given and thatswhy default value is triggered
+    console.log(v1 + v2);       -->output:0 because value is not given and thatswhy default vlaue is triggered
+}
+add();
+
+
+
+
+Jab arguments kai saare ho to humein utne hi parameter banaane padege, issey bachne ke liye, hum rest ka use karte hai, agar (...) function ke parameter space mein lage toh woh rest operator hai and agar wo arrays and objects mein lage toh woh spread operator hai
+E.g.:
+function abcd(...val){
+
+}
+abcd(1,2,3,4,5,6,7,8,9,10)
+//output 10 [1,2,3,4,5,6,7,8,9,10]  --> output array mai ayega
+
+
+first class functions --> functions ko values ki tarah treat kar sakte hai
+let abcd = function(){}  -> this is a format for 1st class function
+
+
+let function abcd(val){
+    val();
+}
+
+abcd(function(){
+    console.log("Hello I'm a 1st order function");
+});
+
+
+
+
+
+Higher Order Functions
+
+HOF woh function hota hai jo ki return kare function ya fir accept kare ek function apne parameter mai
+
+E.g.: 1st-> function ko parameter mai accept karne wala method
+
+function abcd (val){        ---
+                               |
+                               -----> this abcd function is an HOF kyuki wo apne parameter mai ek function ko accept kar raha hai
+                               |
+                            ---   
+}
+
+abcd(function(){
+
+}
+);
+
+
+
+E.g.: 2nd-> function ke andar function ko return karne wala method
+
+function abcd(){
+    return function(){
+        console.log("This is the 2nd fromat of HOF")
+    }
+}
+
+abcd()();       --> 1st bracket abcd ko chalaneke liye, 2nd bracket andar ke function ko chalaneke liye
+
+
+Pure V/S Impure functions
+
+Pure
+-->Aisa function jo ki bahar ke value ko naa badle wo hai pure function.
+E.g.:
+let a = 12;
+
+function(){
+    console.log(""HaiHaiHai)       --> this function dosen't change the value of anything outside of it like it is not changing the value or affecting the value of 'a' in this example so this is a pure function
+}
+
+
+
+
+
+Impure function
+-->Aisa function jo ki bahar ke value ko badle woh hai impure function.
+E.g.:
+let a = 12;
+
+function(){
+    a++;        -->this function is changing or affecting the value of a in this example so this is an impure function
+}
+
+
+
+Closures
+-> Ek function jo return kare ek aur function aur return hone wala function hamesha use kare parent function ka koi variable
+
+E.g.:
+function arpa(){
+    let a = 12;
+    return function(){
+        console.log(a);
+    }
+}
+
+
+
+Lexical Scoping
+-> The scope of the variable inside a function is called as lexical scoping.
+
+E.g.:
+function arpa(){
+    let a = 10;         -->'a' can be used in function arpa, jyra and sada, this is the scope   of 'a'
+    function jyra(){
+        let b = 9;      -->'b' can be used in function jyra and sada, this is the scope of 'b'
+        function sada(){
+            let c = 30; -->'c' can be used only in the sada, this is the scope of 'c'
+        }
+    }
+}
+
+
+IIFE(Immediately Invoked Function expression)
+E.g.:
+(function(){
+    //no name must be given to the function
+})();
+
+
+Hoisting differences between declaration and expression
+
+Hoisting in declaration or statement
+Hoisting means you can use teh variable or function before declaring it;
+E.g.:
+
+arpa();
+
+
+function arpa(){
+    console.log("Hoisting in declaration works")
+}
+
+
+Hoisting in expression
+E.g.:
+jyra();
+
+let jyra = function(){
+    console.log("Hoisting in expression does not work it shows error")
+}
+
+
+
+
+
+
+
+Basic Function Understanding Questions to solve
+
+1. Ek function greet() banao jo console me "Hello JavaScript" print kare.
+
+2. Ek function sayHello(name) banao jo "Hello <name>" print kare.
+
+3. Ek function add(a, b) banao jo do numbers ka sum return kare.
+
+4. Ek function square(num) banao jo number ka square return kare.
+
+5. Ek function isEven(num) banao jo check kare number even hai ya nahi (true/false return kare).
+
+Return Values Practice
+
+6. Ek function multiply(a, b) banao jo multiplication return kare.
+
+7. Ek function getFullName(firstName, lastName) banao jo full name return kare.
+
+8. Ek function convertToUpper(text) banao jo string ko uppercase me return kare.
+
+9. Ek function getLength(str) banao jo string ki length return kare.
+
+10. Ek function findMax(a, b) banao jo dono numbers me se bada number return kare.
+
+Conditional Logic Inside Functions
+
+11. Ek function checkAge(age) banao jo return kare "Adult" agar age ≥18 ho warna "Minor".
+
+12. Ek function isPositive(num) banao jo check kare number positive hai ya negative.
+
+13. Ek function grade(score) banao jo score ke basis par "A", "B", "C", "Fail" return kare.
+
+14. Ek function isPalindrome(word) banao jo check kare word palindrome hai ya nahi.
+
+15.Ek function checkPassword(password) banao jo check kare password length ≥ 8 hai ya nahi.
+
+Arrow Functions
+
+16. Ek arrow function likho jo do numbers ka difference return kare.
+
+17. Ek arrow function cube(num) banao jo cube return kare.
+
+18. Ek arrow function greetUser(name) banao jo "Welcome <name>" return kare.
+
+19. Ek arrow function isOdd(num) banao jo check kare number odd hai ya nahi.
+
+20. Ek arrow function double(num) banao jo number ko double kare.
+
+Function Expressions
+
+21. Ek function expression use karke divide(a,b) function banao.
+
+22. Ek function expression likho jo string reverse kare.
+
+23. Ek function expression likho jo check kare number 10 se bada hai ya nahi.
+
+Default Parameters
+
+24. Ek function greet(name = "Guest") banao jo agar name pass na ho toh "Hello Guest" print kare.
+
+25. Ek function power(base, exponent = 2) banao jo exponent default 2 rakhe.
+
+Callback Functions
+
+26. Ek function processNumber(num, callback) banao jo callback ko num pass kare.
+
+27. Ek function banao jo array ka har element double kare using callback.
+
+28. Ek function calculate(a, b, operation) banao jisme operation ek callback ho.
+
+Mixed Concept Questions
+
+29. Ek function banao jo array ka sum calculate kare.
+
+30. Ek function banao jo array me largest number find kare.

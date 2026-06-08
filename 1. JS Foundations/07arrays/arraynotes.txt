@@ -1,0 +1,180 @@
+Universal defination of an array
+An array is an ordered, organized, or impressive collection of items, or a linear data structure in programming that stores similar elements in contiguous memory locations.
+
+But arrays in JavaScript can contain any type of elements they are not needed to be compulsorily similar but this happens only in JS arrays.
+
+How to create an Array ?
+let arr = [1, 2, 3, 4, 5]
+arr[2]                      --> Accessing the 2nd index(3rd value) from an array, which is 3
+arr[3] = 18                 --> Modifying the 3rd index(4th value) in an array which was 4 but now it is 18
+
+What are methods ?
+Kisike bhi agge dot(.) laga and kuch likh ke bracket() laga toh woh method hota hai
+for eg.:-> arr.push(400)            --> this adds the value at the end of an array and this is also a method
+
+arr.pop()                           --> this removes the last value from an array
+
+arr.shift()                         --> this removes the first value from the starting of an array
+
+arr.unshift(50)                     --> this adds the value in the starting of an array
+
+arr.splice(2,2)                     --> ye bich se value hatata hai
+           ^ ^
+           | |
+|----------| |----------|
+|kahase ha-| |kitni val-|
+|tani hai  | |ues hatani|
+|__________| |hai       |
+             |__________|
+
+
+let newarr = arr.slice(0, 4)        --> this makes changes in the new arr but it dosen't make any changes
+                                        in the original array. What it does is it removes the mentioned portion
+                                        from an original array and drops those values in the new array. 
+                                        in this eg. the value from 0th index to 3rd index is dropped in the newarr
+
+
+
+arr.reverse()                       --> main array ko ulta kar deta hai
+
+
+
+let arr = [62, 11, 34, 2, 50]
+let asc = arr.sort(function(){                --> passing function in a sort is compulsory, it is the syntax of sort
+    return a-b;                     --> sorts array in an ascending order
+})
+
+let desc = arr.sort(function(){
+    return b-a;                     --> sorts array in an desccending order
+})
+
+
+sort, forEach, filter, map, reduce          --> all accept function
+
+
+
+
+Map
+map sirf tab use karna hai jab apko ek naya array banana hai pichle array ke data ke basis pichle pe
+map dikhte hi maan mai ek blank array bana liya karo
+
+When to use ?
+Jab bhi apko koi aisa case dikh jaye jahape ek array se naya array banega and woh array kuch values ko rakhega toh map use karna hai
+
+
+For eg.:->
+let arpa = [2,34,56,78,90,12]
+let ans = arpa.map(function(val){
+    return 12;
+})
+
+output ans = [12,12,12,12,12,12]
+
+if return is not given then map gives undefined in output
+
+
+
+
+
+
+Filter
+let aryan = [1,2,3,4,5,6,7,8,9,10]
+let newaryan = aryan.filter(function(val){
+    if(val > 4) return true;
+})
+
+Ouput -> newaryan = [5,6,7,8,9,10]
+
+Filter only accepts true and false in the function which means you have to use loops which gives true and false as an output for eg.: ifelse loop
+Filter actually filters the value from the original array and puts that filtered values in the new array
+
+
+
+
+
+What is reduce ?
+Reduce() actually reduces the entire array in the single value
+
+For eg.:->
+
+let jyra = [1,2,3,4,5,6]
+let newans = jyra.reduce(function(accumulator, val){
+    return accumulator + val;                               -->Output->21 stored in newans , logice 1+2+3+4+5+6=21
+},0);
+  ^
+  |
+this is the default value of accumulator
+
+
+
+What does find do ?
+find() finds the first element you desire to want
+
+for eg.:-> 
+let sada = [1,2,3,1,5,6]
+let newsada = sada.find(function(val){
+    return val === 1;
+})
+
+Output -> 1
+This didn't printed the 2nd (1) because it stops when first time 1 is occured
+
+
+
+
+some
+Checks if the thing you are looking for is in the array or not
+
+
+
+for eg.:->
+let brba = [10,20,40,80,90];
+let walter = brba.some(function(val){
+    return val > 85;
+})
+
+Output -> true
+
+
+
+every
+Checks if all the elements are passing the given condition in the function or not
+
+
+for eg.:->
+let got = [10,20,40,80,90];
+let john = got.every(function(val){
+    return val > 5;
+})
+Output -> true
+
+if it would have been return val > 15
+
+Ouput -> false
+
+
+
+
+
+
+Destructuring
+
+
+let irish = [1,2,3,4,5,6]
+let [a,b,,c] = irish;
+
+Output->a=1,b=2,c=4 --> ,, is used to skip the element in between
+
+
+Spread operator
+Used to copy the values from original array as it is in the new array without affecting or referencing the original array
+
+let godfather = [1,2,3,4,5,6,7,8,9]
+let vito = [...godfather];      -->(...)is the spread operator here used to copy the values of godfather in a vito
+
+Output->
+godfather [1,2,3,4,5,6,7,8,9]
+vito [1,2,3,4,5,6,7,8,9]
+vito.pop()
+vito [1,2,3,4,5,6,7,8]
+godfather [1,2,3,4,5,6,7,8,9]           --> change in vito didn't affect the godfather

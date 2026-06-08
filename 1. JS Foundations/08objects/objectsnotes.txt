@@ -1,0 +1,138 @@
+When are objects made ?
+Whenever you want to fill the information of specific thing or anything you use objects.
+
+For eg.:->
+let obj = {
+name: `Aryan`, --> Here (name) is key and (`Aryan`) is value
+age: 21,
+favfood: `Masala Dosa`
+}
+
+let ar = `name`
+
+obj.name --> Output -> Aryan
+obj.ar --> Output ->Won't give output to access element like this in reference form [] are used
+obj[ar] --> Output -> Aryan (Now you can access with reference form because you used brackets [])
+
+Nesting and Deep-searching
+let info = {
+name: `Aryan`,
+Address: {
+country: `India`,
+city: `Mumbai`,
+Location: {
+lat: 10,
+lng: 25,
+}
+}
+}
+
+info.Address.Location.lng --> Output -> 25
+--> this is how to access the element using deep-searching and this {{}} type is called as nested objects
+
+Destructuring of objects
+
+Taking above example
+
+let{lat,lng} = info.Address.Location;
+console.log(lat); --> Output -> 10
+console.log(lng); --> Output -> 25
+
+for-in looping
+
+let obj = {
+name: `Aryan`,
+age: 21,
+email: `test@test.com`
+};
+
+for(let key in obj){
+console.log(key, obj[key]);
+}
+
+Object.keys
+
+Object.keys(obj)
+Output -> [`name`, `age`, `email`]
+
+Spread operator in 0bjects
+let obj = {
+name: `Aryan`,
+age: 21,
+favfood: `Masala Dosa`
+}
+
+let obj2 = {...obj} --> Copies the content of the one object into a new object (...)
+
+let obj3 = Object.assign({}, obj) --> this too copies one object into a new object
+
+let obj4 = Object.assign({dream: Supreme Leader of World}, obj) -> adds dream and it's value in the copied obj
+
+
+
+How to copy deep object - DEEP CLONE
+
+
+let arpainfo = {
+name: `Aryan`,
+Address: {
+country: `India`,
+}
+}
+
+let arpainfo2 = {...arpainfo}           --> this will copy the object but if changes made in the copy will 
+                                            affect the originl object too because it will reference deep info of the first object but keep all the elements as it is which aren't required deep searching
+
+thatswhy we use this method to copy thee deep object
+
+let arpainfo2 = JSON.parse(JSON.stringify(arpainfo))
+
+arpainfo2.Address.country = `Switzerland`
+
+Now this change won't affect the arpainfo this change will only  apply to arpainfo2
+
+
+
+
+
+
+
+Optional chaining
+
+let arpainfo = {
+name: `Aryan`,
+Addresses: {                        --> here I made changes as Addresses
+country: `India`,
+}
+}
+
+arpainfo?.Address?.country          --> heere I kept Address only but it won't  give error instead it will return
+                                        undefined because I performed optional chaining here (?.) because of which if we ask for right address of the data in object then it gives access else it gives undefined as output but it won't give us error as output
+
+
+
+
+Compounded properties
+
+let role = `admin`
+
+let obj = {
+    name: `aryan`,
+    age: 21,
+    email: arpa@test.com,
+    address: {
+        city: Kalyan,
+    },
+    [role]: `ARYAN`,
+};
+
+
+Output --> 
+
+role = `ARYAN`,
+name: `aryan`,
+age: 21,
+email: arpa@test.com,
+address: {
+    city: Kalyan
+}
